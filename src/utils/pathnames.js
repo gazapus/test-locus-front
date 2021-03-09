@@ -2,7 +2,7 @@ const Paths = {
     home: '/',
     form: '/form',
     instrucctions: '/instrucctions',
-    userform: '/input',
+    test_form: '/test/form',
     end: '/end',
     login: '/login',
     dashboard: '/dashboard',

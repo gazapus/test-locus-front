@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
         margin: '0.8em 0 0.8em 0'
     },
     menuIcon: {
-        marginRight: theme.spacing(3),
         height: '5em',
         filter: 'brightness(0.9)'
     },
