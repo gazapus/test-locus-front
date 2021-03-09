@@ -71,7 +71,7 @@ function TestForm() {
                 sex: values.sex,
                 institution: values.institution
             })
-            history.push(pathnames.instrucctions);
+            history.push(pathnames.test_instrucction);
         },
         validate: values => {
             let errors = {};

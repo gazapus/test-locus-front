@@ -1,15 +1,8 @@
 const Paths = {
     home: '/',
-    form: '/form',
-    instrucctions: '/instrucctions',
     test_form: '/test/form',
-    end: '/end',
-    login: '/login',
-    dashboard: '/dashboard',
-    formembu: '/embu89/test',
-    userformembu: '/embu89/form',
-    end2: '/embu89/end',
-    instrucctionEmbu: '/embu89',
+    test_instrucction: '/test/instrucctions',
+    login: '/login'
 }
 
 export default Paths;
