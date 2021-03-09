@@ -19,13 +19,13 @@ const useStyle = makeStyles({
     }
 })
 
-function PageContainer({ children, align = "left" }) {
+function PageContainer({ children, align = "left", backgroundColor = 'white' }) {
     const classes = useStyle();
 
     return (
         <div className={classes.container}>
             <AppBar />
-            <div className={classes.content} style={{alignItems: align}}>
+            <div className={classes.content} style={{alignItems: align, backgroundColor: backgroundColor}}>
                 {children}
             </div>
             <Footer />

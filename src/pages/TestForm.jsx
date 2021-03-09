@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import pathnames from '../utils/pathnames';
 import PageContainer from '../components/PageContainer';
 import LocalStorageService from '../services/localstorage.service';
+import palette from '../utils/palette';
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -14,7 +15,8 @@ const useStyle = makeStyles((theme) => ({
         alignItems: 'center',
         borderStyle: 'solid',
         borderRadius: '5px',
-        borderColor: '#cfcfcf',
+        borderColor: palette.border,
+        backgroundColor: 'white',
         marginTop: '2.5em',
         marginBottom: '2em',
         boxSizing: 'border-box',
@@ -90,7 +92,7 @@ function TestForm() {
     });
 
     return (
-        <PageContainer align="center">
+        <PageContainer align="center" backgroundColor={palette.background}>
             <form className={classes.root} onSubmit={formik.handleSubmit}>
                 <h3 className={classes.title}>DATOS INFORMATIVOS</h3>
                 <TextField

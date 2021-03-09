@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
         margin: '1em',
         padding: '2em',
         boxSizing: 'border-box',
-        backgroundColor: palette.background,
+        backgroundColor: 'white',
         [theme.breakpoints.between('xs', 'sm')]: {
             width: '100%',
             fontSize: '1em',
@@ -62,7 +62,7 @@ function Instrucction() {
     const classes = useStyles();
 
     return (
-        <PageContinaer align="center">
+        <PageContinaer align="center" backgroundColor={palette.background}>
             <div className={classes.root}>
                 <Typography variant="h4" className={classes.title}>
                     INSTRUCCIONES
@@ -88,7 +88,7 @@ function Instrucction() {
                 <strong className={classes.textStrong}>
                     RECUERDE: Escoja la alternativa que usted personalmente crea que sea la más verdadera en cada ítem.
                 </strong>
-                <Link to={pathanames.form} style={{ textDecoration: 'none' }}>
+                <Link to={pathanames.test_play} style={{ textDecoration: 'none' }}>
                     <Button color="secondary" variant="contained" className={classes.button} size="large">
                         ACEPTAR
                 </Button>
