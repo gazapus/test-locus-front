@@ -4,6 +4,7 @@ import pathNames from './utils/pathnames';
 import Home from './pages/Home';
 import TestForm from './pages/TestForm';
 import Instrucction from './pages/Instrucction';
+import Test from './pages/Test';
 
 /*
 import Instruccionts  from './pages/Instruccionts';
@@ -25,6 +26,7 @@ function Routes() {
             <Route exact path={pathNames.home} component={Home} />
             <Route exact path={pathNames.test_form} component={TestForm}/>
             <Route exact path={pathNames.test_instrucction} component={Instrucction}/>
+            <Route exact path={pathNames.test_play} component={Test}/>
         </Switch>
     );
 }
