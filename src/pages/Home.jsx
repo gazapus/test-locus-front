@@ -11,7 +11,7 @@ const useStyle = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         paddingTop: '8vh',
-        paddingBottom: '2em'
+        paddingBottom: '2em',
     },
     title: {
         textAlign: 'center',
@@ -49,7 +49,7 @@ function Home() {
                 <Typography className={classes.locus}>
                     (Locus de Control)
                     </Typography>
-                <Link to={pathnames.userform} style={{ textDecoration: 'none' }}>
+                <Link to={pathnames.test_form} style={{ textDecoration: 'none' }}>
                     <Button variant="contained" color="secondary" size="large" className={classes.button}>TEST LOCUS</Button>
                 </Link>
             </div>
