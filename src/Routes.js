@@ -5,20 +5,7 @@ import Home from './pages/Home';
 import TestForm from './pages/TestForm';
 import Instrucction from './pages/Instrucction';
 import Test from './pages/Test';
-
-/*
-import Instruccionts  from './pages/Instruccionts';
-import Form  from './pages/Form';
-import UserForm  from './pages/UserForm';
-import Ending  from './pages/Ending';
-import Login  from './pages/Login';
-import Dashboard  from './pages/Dashboard';
-import FormEmbu from './pages/FormEmbu';
-import FormUserEmbu from './pages/FormUserEmbu';
-import EndingEmbu from './pages/EndingEmbu';
-import NotFound from './pages/NotFound';
-import InstrucctionsEmbu from './pages/InstrucctionEmbu';
-*/
+import TestEnding from './pages/Ending';
 
 function Routes() {
     return (
@@ -27,6 +14,7 @@ function Routes() {
             <Route exact path={pathNames.test_form} component={TestForm}/>
             <Route exact path={pathNames.test_instrucction} component={Instrucction}/>
             <Route exact path={pathNames.test_play} component={Test}/>
+            <Route exact path={pathNames.test_end} component={TestEnding}/>
         </Switch>
     );
 }

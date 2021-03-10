@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import TestService from '../services/test.service';
 import questions from '../data/questions';
-//import Alert from '../components/Alert';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
@@ -55,7 +52,7 @@ function Test() {
         if (currentQuestion < TOTAL_QUESTIONS - 1) {
             setCurrentQuestion(currentQuestion + 1)
         } else {
-            console.log("finalizado")
+            history.push(pathnames.test_end)
         }
     }
 

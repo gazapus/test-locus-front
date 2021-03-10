@@ -1,7 +1,12 @@
-function test() {}
+import http from "../utils/http-common";
+import authHeader from "./auth-header";
+
+function create(userData, answers) {
+    http.post('')
+}
 
 const methods = {
-    test
+    create
 }
 
 export default methods;

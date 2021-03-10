@@ -3,6 +3,7 @@ const Paths = {
     test_form: '/test/form',
     test_instrucction: '/test/instrucctions',
     test_play: '/test/play',
+    test_end: '/test/end',
     login: '/login'
 }
 
