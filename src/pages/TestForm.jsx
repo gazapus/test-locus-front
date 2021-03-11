@@ -22,7 +22,9 @@ const useStyle = makeStyles((theme) => ({
         boxSizing: 'border-box',
         [theme.breakpoints.between('xs', 'sm')]: {
             padding: '0em',
-            width: '90%'
+            width: '90%',
+            borderStyle: 'none',
+
         },
         [theme.breakpoints.between('sm', 'md')]: {
             padding: '1em',
@@ -57,7 +59,7 @@ function TestForm() {
     const classes = useStyle();
     let history = useHistory();
     document.title = "Test de Caras | Formulario"
-    
+
     const formik = useFormik({
         initialValues: {
             alias: '',
