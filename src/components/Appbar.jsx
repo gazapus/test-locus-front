@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function AppTopBar() {
+function AppTopBar({showLoginButton = false}) {
     const classes = useStyles();
 
     return (
@@ -30,7 +30,7 @@ function AppTopBar() {
                         <img src={UNLIcon} className={classes.menuIcon} alt="" />
                     </Link>
                 </div>
-                <UserButton />
+                {showLoginButton ? <UserButton /> : ''}
             </Toolbar>
         </AppBar>
     )

@@ -36,7 +36,7 @@ function Home() {
     document.title = "Test de Caras"
 
     return (
-        <PageContainer>
+        <PageContainer showLoginButton={true}>
             <div className={classes.root}>
                 <Typography variant={window.innerWidth > 400 ? 'h4' : 'h5'} className={classes.title}>
                     Carrera de Psicología Educativa y Orientación

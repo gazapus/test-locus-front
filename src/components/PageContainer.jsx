@@ -19,12 +19,12 @@ const useStyle = makeStyles({
     }
 })
 
-function PageContainer({ children, align = "left", backgroundColor = 'white', justify="start" }) {
+function PageContainer({ children, align = "left", backgroundColor = 'white', justify="start", showLoginButton }) {
     const classes = useStyle();
 
     return (
         <div className={classes.container}>
-            <AppBar />
+            <AppBar showLoginButton={showLoginButton}/>
             <div className={classes.content} style={{alignItems: align, backgroundColor: backgroundColor, justifyContent: justify}}>
                 {children}
             </div>
