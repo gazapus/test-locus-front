@@ -6,6 +6,7 @@ import TestForm from './pages/TestForm';
 import Instrucction from './pages/Instrucction';
 import Test from './pages/Test';
 import TestEnding from './pages/Ending';
+import Register from './pages/Register';
 
 function Routes() {
     return (
@@ -15,6 +16,7 @@ function Routes() {
             <Route exact path={pathNames.test_instrucction} component={Instrucction}/>
             <Route exact path={pathNames.test_play} component={Test}/>
             <Route exact path={pathNames.test_end} component={TestEnding}/>
+            <Route exact path={pathNames.register} component={Register}/>
         </Switch>
     );
 }

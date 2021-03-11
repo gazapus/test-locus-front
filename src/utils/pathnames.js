@@ -4,7 +4,8 @@ const Paths = {
     test_instrucction: '/test/instrucctions',
     test_play: '/test/play',
     test_end: '/test/end',
-    login: '/login'
+    login: '/login',
+    register: '/register'
 }
 
 export default Paths;
