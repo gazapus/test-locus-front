@@ -3,12 +3,17 @@ function setUserData(data) {
 };
 
 function getUserData() {
-    return JSON.parse(localStorage.getItem('user_test'));
+    return JSON.parse(sessionStorage.getItem('user_test'));
 };
+
+function removeUserData() {
+    sessionStorage.removeItem('user_test');
+}
 
 let methods = {
     setUserData,
-    getUserData
+    getUserData,
+    removeUserData
 };
 
 export default methods;

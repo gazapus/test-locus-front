@@ -7,6 +7,7 @@ import pathnames from '../utils/pathnames';
 import palette from '../utils/palette';
 import PageContainer from '../components/PageContainer';
 import useLoggedUser from '../hooks/useUserLogged';
+import LocalStorageService from '../services/localstorage.service';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -66,7 +67,7 @@ function Ending({ location }) {
             console.log("hay estado");
         }
         setTimeout(() => setLoading(false), 3000);
-
+        //LocalStorageService.removeUserData();
     }, [])
 
     return (

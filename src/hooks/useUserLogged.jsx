@@ -6,6 +6,7 @@ import pathnames from '../utils/pathnames';
 function useUserLogged() {
     const history = useHistory();
     useEffect(() => {
+        console.log(LocalStorageService.getUserData())
         if(!LocalStorageService.getUserData()) {
             alert("Debe llenar el formulario primero")
             history.push(pathnames.home);

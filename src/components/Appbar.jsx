@@ -4,35 +4,33 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import UNLIcon from '../images/unlbanner.png';
 import pathnames from '../utils/pathnames';
+import UserButton from './UserButton';
 
 const useStyles = makeStyles((theme) => ({
-    link: {
+    left: {
         display: 'flex',
         alignItems: 'center',
-        textDecoration: 'none',
-        margin: '0.8em 0 0.8em 0'
+        margin: '0.8em 0 0.8em 0',
+        flexGrow: 1
     },
     menuIcon: {
         height: '5em',
         filter: 'brightness(0.9)'
-    },
-    right: {
-
     }
 }));
 
-function AppTopBar({rightComponent = <></>}) {
+function AppTopBar() {
     const classes = useStyles();
 
     return (
         <AppBar position="relative" >
             <Toolbar>
-                <Link to={pathnames.home} className={classes.link}>
-                    <img src={UNLIcon} className={classes.menuIcon} alt="" />
-                </Link>
-                <div className={classes.right}>
-                    {rightComponent}
+                <div className={classes.left}>
+                    <Link to={pathnames.home} >
+                        <img src={UNLIcon} className={classes.menuIcon} alt="" />
+                    </Link>
                 </div>
+                <UserButton />
             </Toolbar>
         </AppBar>
     )
