@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import pathnames from '../utils/pathnames';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import UserService from '../services/user.service';
 
 const useStyles = makeStyles((theme) => ({
-    white: {
+    button: {
+        fontSize: '0.8em',
         color: 'white'
     }
 }));
@@ -14,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 function UserButton() {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState(null);
+    const history = useHistory();
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -23,14 +27,27 @@ function UserButton() {
         setAnchorEl(null);
     };
 
+    function handleLogout() {
+        UserService.logout();
+        history.push(pathnames.home)
+    }
+
     return (
         <>
-            <Button
-                aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
-                variant="outlined" className={classes.white}
-            >
-                Entrar
-            </Button>
+            {
+                (UserService.getCurrentUser()) ?
+                    <Button
+                        aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
+                        className={classes.button} variant="outlined"
+                    >
+                        {UserService.getCurrentUser().username}
+                    </Button>
+                    :
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <Button className={classes.button}>Accede</Button> |
+                        <Button className={classes.button}>Registrate</Button>
+                    </div>
+            }
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -40,7 +57,7 @@ function UserButton() {
             >
                 <MenuItem onClick={handleClose}>Mi Cuenta</MenuItem>
                 <MenuItem onClick={handleClose}>Resultados</MenuItem>
-                <MenuItem onClick={handleClose}>Salir</MenuItem>
+                <MenuItem onClick={handleLogout}>Salir</MenuItem>
             </Menu>
         </>
     )

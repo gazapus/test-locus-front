@@ -85,7 +85,7 @@ function Register() {
     })
 
     return (
-        <PageContainer align="center" backgroundColor={palette.background} backgroundColor={palette.background}>
+        <PageContainer align="center" backgroundColor={palette.background}>
             <form className={classes.root} onSubmit={formik.handleSubmit}>
                 <h3 className={classes.title}>Registro de usuarios</h3>
                 <TextField
@@ -142,7 +142,7 @@ function Register() {
                     <p>Se ha envíado un email a su cuenta de correo <em>{formik.values.email}</em> para confirmar su registro
                     <br/>En caso de no encontrarlo revise la sección de spam
                     </p>
-                    <Button variant="contained" color="primary">Aceptar</Button>
+                    <Button variant="contained" color="primary" onClick={() => setModalOpen(false)}>Aceptar</Button>
                 </div>
             </Modal>
         </PageContainer>
