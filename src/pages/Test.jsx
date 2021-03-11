@@ -7,6 +7,7 @@ import pathnames from '../utils/pathnames';
 import Question from '../components/Question.jsx';
 import PageContainer from '../components/PageContainer';
 import palette from '../utils/palette';
+import useLoggedUser from '../hooks/useUserLogged';
 
 const useStyles = makeStyles((theme) => ({
     progressContainer: {
@@ -40,6 +41,8 @@ function Test() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const classes = useStyles();
     let history = useHistory();
+    document.title = "Test de Caras | Test"
+    useLoggedUser();
 
     function saveAnswer(optionChosen) {
         let newAnswers = [...answers];

@@ -33,6 +33,7 @@ const useStyle = makeStyles({
 
 function Home() {
     const classes = useStyle();
+    document.title = "Test de Caras"
 
     return (
         <PageContainer>

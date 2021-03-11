@@ -6,6 +6,7 @@ import TestService from '../services/test.service';
 import pathnames from '../utils/pathnames';
 import palette from '../utils/palette';
 import PageContainer from '../components/PageContainer';
+import useLoggedUser from '../hooks/useUserLogged';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -56,6 +57,9 @@ function Ending({ location }) {
     const [loading, setLoading] = useState(true);
     const [succefullySaved, setSuccefullySaved] = useState(true);
     const classes = useStyles();
+    useLoggedUser();
+
+    document.title = "Test de Caras | Finalización"
 
     useEffect(() => {
         if (location.state) {

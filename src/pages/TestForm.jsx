@@ -56,7 +56,8 @@ const useStyle = makeStyles((theme) => ({
 function TestForm() {
     const classes = useStyle();
     let history = useHistory();
-
+    document.title = "Test de Caras | Formulario"
+    
     const formik = useFormik({
         initialValues: {
             alias: '',
