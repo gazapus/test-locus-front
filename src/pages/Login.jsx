@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import validators from '../utils/validators';
 import { Button, TextField, CircularProgress, Typography } from '@material-ui/core';
 import PageContainer from '../components/PageContainer';
-import Modal from '../components/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import palette from '../utils/palette';
 
@@ -57,12 +56,10 @@ const useStyle = makeStyles((theme) => ({
 
 function Register() {
     const [loading, setLoading] = useState(true);
-    const [succefullyRegister, setSuccefullyRegister] = useState(false);
-    const [modalOpen, setModalOpen] = useState(false);
+    const [succefullyLogged, setSuccefullyLogged] = useState(false);
     const classes = useStyle();
     const formik = useFormik({
         initialValues: {
-            username: '',
             email: '',
             password: ''
         },
@@ -71,9 +68,6 @@ function Register() {
         },
         validate: values => {
             let errors = {};
-            if (values.username.length < 4) errors.username = "Nombre de usuario muy corto";
-            if (values.username.length > 15) errors.username = "Nombre de usuario muy largo";
-            if (values.username.length === 0) errors.username = "Debe completar este campo";
             if (!validators.validateEmail(values.email)) errors.email = "Formato de correo electrónico no válido";
             if (values.password.length < 6) errors.password = "Password muy corto";
             if (values.password.length > 20) errors.password = "Password muy largo";
@@ -87,31 +81,18 @@ function Register() {
     return (
         <PageContainer align="center" backgroundColor={palette.background}>
             <form className={classes.root} onSubmit={formik.handleSubmit}>
-                <Typography variant="h4">Registrarse</Typography>
-                <TextField
-                    id="username"
-                    name="username"
-                    label="Nombre de usuario"
-                    variant="outlined"
-                    value={formik.values.username}
-                    className={classes.input}
-                    helperText={formik.errors.username}
-                    error={formik.errors.username}
-                    onChange={formik.handleChange}
-                    InputProps={{ inputProps: { maxLength: 20 } }}
-                />
+                <Typography variant="h4">Iniciar sesión</Typography>
                 <TextField
                     id="email"
                     name="email"
                     label="Correo electrónico"
                     variant="outlined"
-                    type="email"
                     value={formik.values.email}
                     className={classes.input}
                     helperText={formik.errors.email}
                     error={formik.errors.email}
                     onChange={formik.handleChange}
-                    InputProps={{ inputProps: { maxLength: 50 } }}
+                    InputProps={{ inputProps: { maxLength: 45 } }}
                 />
                 <TextField
                     id="password"
@@ -137,15 +118,6 @@ function Register() {
                 </Button>
                 { loading ? <CircularProgress style={{margin: '1em'}}/> : ''}
             </form>
-            <Modal open={modalOpen}>
-                <div className={classes.modalContent}>
-                    <Typography variant="h5" style={{color: palette.secondary}}>Se ha procesado el registro exitosamente</Typography>
-                    <p>Se ha envíado un email a su cuenta de correo <em>{formik.values.email}</em> para confirmar su registro
-                    <br/>En caso de no encontrarlo revise la sección de spam
-                    </p>
-                    <Button variant="contained" color="primary" onClick={() => setModalOpen(false)}>Aceptar</Button>
-                </div>
-            </Modal>
         </PageContainer>
     )
 }

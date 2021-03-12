@@ -44,8 +44,8 @@ function UserButton() {
                     </Button>
                     :
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                        <Button className={classes.button}>Accede</Button> |
-                        <Button className={classes.button}>Registrate</Button>
+                        <Button className={classes.button} onClick={() => history.push(pathnames.login)}>Accede</Button> |
+                        <Button className={classes.button} onClick={() => history.push(pathnames.register)}>Registrate</Button>
                     </div>
             }
             <Menu
