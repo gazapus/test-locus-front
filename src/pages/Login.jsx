@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
-import validators from '../utils/validators';
+import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, CircularProgress, Typography } from '@material-ui/core';
 import PageContainer from '../components/PageContainer';
-import { makeStyles } from '@material-ui/core/styles';
+
+import validators from '../utils/validators';
 import palette from '../utils/palette';
+import pathnames from '../utils/pathnames';
+import AuthService from '../services/auth.service';
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -57,8 +61,9 @@ const useStyle = makeStyles((theme) => ({
 function Login() {
     document.title = "Locus de Control | Acceder"
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [succefullyLogged, setSuccefullyLogged] = useState(false);
+    const history = useHistory();
     const classes = useStyle();
     const formik = useFormik({
         initialValues: {
@@ -66,7 +71,11 @@ function Login() {
             password: ''
         },
         onSubmit: values => {
-            console.log(values)
+            setLoading(false)
+            AuthService.login(values)
+                .then(res => setSuccefullyLogged(true))
+                .catch(err => alert(err.response.data.message))
+                .finally(() => setLoading(false))
         },
         validate: values => {
             let errors = {};
@@ -79,6 +88,10 @@ function Login() {
         validateOnChange: false,
         validateOnBlur: false,
     })
+
+    useEffect(() => {
+        if(succefullyLogged) history.push(pathnames.home);
+    }, [succefullyLogged])
 
     return (
         <PageContainer align="center" backgroundColor={palette.background}>
@@ -101,6 +114,7 @@ function Login() {
                     name="password"
                     label="Password"
                     variant="outlined"
+                    type="password"
                     value={formik.values.password}
                     className={classes.input}
                     helperText={formik.errors.password}
@@ -118,7 +132,7 @@ function Login() {
                 >
                     ACEPTAR
                 </Button>
-                { loading ? <CircularProgress style={{margin: '1em'}}/> : ''}
+                { loading ? <CircularProgress style={{margin: '1em'}} size="1.5em"/> : ''}
             </form>
         </PageContainer>
     )

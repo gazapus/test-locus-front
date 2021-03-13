@@ -5,15 +5,15 @@ function signup(values) {
     return http.post("/auth/signup", values)
 };
 
-function login(username, password) {
+function login(values) {
     return http
-        .post("/auth/signin", { username, password })
-        .then((response) => {
+        .post("/auth/signin", values)
+        .then(response => {
             if (response.status === 200) {
                 localStorage.setItem("user", JSON.stringify(response.data));
             }
             return response.data;
-        });
+        })
 };
 
 function confirm(user_id) {
