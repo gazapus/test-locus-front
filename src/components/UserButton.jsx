@@ -5,7 +5,7 @@ import pathnames from '../utils/pathnames';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import UserService from '../services/user.service';
+import AuthService from '../services/auth.service';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -28,19 +28,19 @@ function UserButton() {
     };
 
     function handleLogout() {
-        UserService.logout();
+        AuthService.logout();
         history.push(pathnames.home)
     }
 
     return (
         <>
             {
-                (UserService.getCurrentUser()) ?
+                (AuthService.getCurrentUser()) ?
                     <Button
                         aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}
                         className={classes.button} variant="outlined"
                     >
-                        {UserService.getCurrentUser().username}
+                        {AuthService.getCurrentUser().username}
                     </Button>
                     :
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>

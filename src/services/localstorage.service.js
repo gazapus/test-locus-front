@@ -10,10 +10,25 @@ function removeUserData() {
     sessionStorage.removeItem('user_test');
 }
 
+function setUsernameTest(username) {
+    sessionStorage.setItem('username_test', username);
+}
+
+function getUsernameTest() {
+    sessionStorage.getItem('username_test');
+}
+
+function removeUsernameTest() {
+    sessionStorage.removeItem('username_test');
+}
+
 let methods = {
     setUserData,
     getUserData,
-    removeUserData
+    removeUserData,
+    setUsernameTest,
+    getUsernameTest,
+    removeUsernameTest
 };
 
 export default methods;
