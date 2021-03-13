@@ -58,7 +58,7 @@ const useStyle = makeStyles((theme) => ({
 function TestForm() {
     const classes = useStyle();
     let history = useHistory();
-    document.title = "Test de Caras | Formulario"
+    document.title = "Locus de Control | Formulario"
 
     const formik = useFormik({
         initialValues: {

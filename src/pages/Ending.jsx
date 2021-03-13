@@ -60,7 +60,7 @@ function Ending({ location }) {
     const classes = useStyles();
     useLoggedUser();
 
-    document.title = "Test de Caras | Finalización"
+    document.title = "Locus de Control | Finalización"
 
     useEffect(() => {
         if (location.state) {

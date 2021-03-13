@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
 
 function Instrucction() {
     const classes = useStyles();
-    document.title = "Test de Caras | Instrucciones"
+    document.title = "Locus de Control | Instrucciones"
 
     return (
         <PageContinaer align="center" backgroundColor={palette.background}>

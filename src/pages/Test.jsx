@@ -41,7 +41,7 @@ function Test() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const classes = useStyles();
     let history = useHistory();
-    document.title = "Test de Caras | Test"
+    document.title = "Locus de Control | Test"
     useLoggedUser();
 
     function saveAnswer(optionChosen) {

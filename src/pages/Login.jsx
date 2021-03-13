@@ -54,7 +54,9 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-function Register() {
+function Login() {
+    document.title = "Locus de Control | Acceder"
+
     const [loading, setLoading] = useState(true);
     const [succefullyLogged, setSuccefullyLogged] = useState(false);
     const classes = useStyle();
@@ -122,4 +124,4 @@ function Register() {
     )
 }
 
-export default Register;
+export default Login;

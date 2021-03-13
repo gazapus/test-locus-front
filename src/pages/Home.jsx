@@ -33,7 +33,7 @@ const useStyle = makeStyles({
 
 function Home() {
     const classes = useStyle();
-    document.title = "Test de Caras"
+    document.title = "Locus de Control"
 
     return (
         <PageContainer showLoginButton={true}>

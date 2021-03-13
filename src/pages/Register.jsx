@@ -56,6 +56,8 @@ const useStyle = makeStyles((theme) => ({
 }))
 
 function Register() {
+    document.title = "Locus de Control | Registro"
+
     const [loading, setLoading] = useState(true);
     const [succefullyRegister, setSuccefullyRegister] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
