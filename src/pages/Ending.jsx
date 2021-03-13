@@ -55,19 +55,23 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function Ending({ location }) {
-    const [loading, setLoading] = useState(true);
-    const [succefullySaved, setSuccefullySaved] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [succefullySaved, setSuccefullySaved] = useState(false);
     const classes = useStyles();
     useLoggedUser();
 
     document.title = "Locus de Control | Finalización"
 
     useEffect(() => {
-        if (location.state) {
-            console.log("hay estado");
-        }
-        setTimeout(() => setLoading(false), 3000);
-        //LocalStorageService.removeUserData();
+        setLoading(true)
+        let userData = LocalStorageService.getUserData();
+        let username = LocalStorageService.getUsernameTest();
+        console.log(username)
+        let requestData = { ...userData, ...{ results: location.state.results } };
+        TestService.create(requestData, username)
+            .then(res => setSuccefullySaved(true))
+            .catch(err => alert(err.response.data.message))
+            .finally(() => setLoading(false))
     }, [])
 
     return (
@@ -80,10 +84,10 @@ function Ending({ location }) {
                     {loading ? 'Cargando resultados' : succefullySaved ? 'Test guardado correctamente' : 'No se pudo guardar el test'}
                 </Typography>
                 <p className={classes.text}>
-                    {loading ? 'Espere que termine de guardar los datos' : 'Muchas gracias por participar'}
+                    {loading ? 'Espere que termine de guardar los datos' : succefullySaved ? 'Muchas gracias por participar' : 'Reintente de vuelta'}
                 </p>
                 {loading ? <CircularProgress /> :
-                    <Link to={pathnames.home} style={{textDecoration: 'none'}}>
+                    <Link to={pathnames.home} style={{ textDecoration: 'none' }}>
                         <Button color="primary" variant="contained" size="large">Aceptar</Button>
                     </Link>}
             </div>

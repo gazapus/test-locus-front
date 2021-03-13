@@ -55,7 +55,10 @@ function Test() {
         if (currentQuestion < TOTAL_QUESTIONS - 1) {
             setCurrentQuestion(currentQuestion + 1)
         } else {
-            history.push(pathnames.test_end)
+            history.push({
+                pathname: pathnames.test_end,
+                state: { results: answers}
+            })
         }
     }
 

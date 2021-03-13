@@ -15,7 +15,7 @@ function setUsernameTest(username) {
 }
 
 function getUsernameTest() {
-    sessionStorage.getItem('username_test');
+    return sessionStorage.getItem('username_test');
 }
 
 function removeUsernameTest() {
