@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useFormik } from 'formik';
-import validators from '../utils/validators';
+import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, CircularProgress, Typography } from '@material-ui/core';
 import PageContainer from '../components/PageContainer';
 import Modal from '../components/Modal';
-import { makeStyles } from '@material-ui/core/styles';
+import AuthService from '../services/auth.service';
 import palette from '../utils/palette';
+import validators from '../utils/validators';
+import pathnames from '../utils/pathnames';
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -58,9 +61,9 @@ const useStyle = makeStyles((theme) => ({
 function Register() {
     document.title = "Locus de Control | Registro"
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [succefullyRegister, setSuccefullyRegister] = useState(false);
-    const [modalOpen, setModalOpen] = useState(false);
+    const history = useHistory();
     const classes = useStyle();
     const formik = useFormik({
         initialValues: {
@@ -69,7 +72,11 @@ function Register() {
             password: ''
         },
         onSubmit: values => {
-            console.log(values)
+            setLoading(true);
+            AuthService.signup(values)
+                .then(res => setSuccefullyRegister(true))
+                .catch(err => alert(err.response.data.message))
+                .finally(() => setLoading(false))
         },
         validate: values => {
             let errors = {};
@@ -120,6 +127,7 @@ function Register() {
                     name="password"
                     label="Password"
                     variant="outlined"
+                    type="password"
                     value={formik.values.password}
                     className={classes.input}
                     helperText={formik.errors.password}
@@ -137,15 +145,15 @@ function Register() {
                 >
                     ACEPTAR
                 </Button>
-                { loading ? <CircularProgress style={{margin: '1em'}}/> : ''}
+                {loading ? <CircularProgress style={{ margin: '1em' }} size="1.5em"/> : ''}
             </form>
-            <Modal open={modalOpen}>
+            <Modal open={succefullyRegister}>
                 <div className={classes.modalContent}>
-                    <Typography variant="h5" style={{color: palette.secondary}}>Se ha procesado el registro exitosamente</Typography>
+                    <Typography variant="h5" style={{ color: palette.secondary }}>Se ha procesado el registro exitosamente</Typography>
                     <p>Se ha envíado un email a su cuenta de correo <em>{formik.values.email}</em> para confirmar su registro
-                    <br/>En caso de no encontrarlo revise la sección de spam
+                    <br />En caso de no encontrarlo revise la sección de spam
                     </p>
-                    <Button variant="contained" color="primary" onClick={() => setModalOpen(false)}>Aceptar</Button>
+                    <Button variant="contained" color="primary" onClick={() => history.push(pathnames.home)}>Aceptar</Button>
                 </div>
             </Modal>
         </PageContainer>
