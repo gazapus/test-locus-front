@@ -23,6 +23,11 @@ function UserButton() {
         setAnchorEl(event.currentTarget);
     };
 
+    const handleSelect = (path) => {
+        setAnchorEl(null);
+        history.push(path)
+    }
+
     const handleClose = () => {
         setAnchorEl(null);
     };
@@ -55,6 +60,7 @@ function UserButton() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
+                <MenuItem onClick={() => handleSelect(pathnames.link_test)}>Link del Test</MenuItem>
                 <MenuItem onClick={handleClose}>Mi Cuenta</MenuItem>
                 <MenuItem onClick={handleClose}>Resultados</MenuItem>
                 <MenuItem onClick={handleLogout}>Salir</MenuItem>
