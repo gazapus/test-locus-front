@@ -1,4 +1,5 @@
 const Paths = {
+    server: process.env.REACT_APP_HOST || 'http://localhost:3000',
     home: '/',
     test_form: '/test/form',
     test_instrucction: '/test/instrucctions',
@@ -7,7 +8,8 @@ const Paths = {
     login: '/login',
     register: '/register',
     confirmation: '/confirmation/:user_id',
-    start_test: '/test/start/:username'
+    start_test: '/test/start/:username',
+    link_test: '/personal/link'
 }
 
 export default Paths;
