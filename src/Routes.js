@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Confirmation from './pages/Confirmation';
 import StartTest from './pages/StartTest';
+import TestLink from './pages/TestLink';
 
 function Routes() {
     return (
@@ -23,6 +24,7 @@ function Routes() {
             <Route exact path={pathNames.login} component={Login}/>
             <Route exact path={pathNames.confirmation} component={Confirmation}/>
             <Route exact path={pathNames.start_test} component={StartTest}/>
+            <Route exact path={pathNames.link_test} component={TestLink}/>
         </Switch>
     );
 }

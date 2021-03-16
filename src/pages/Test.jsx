@@ -7,7 +7,7 @@ import pathnames from '../utils/pathnames';
 import Question from '../components/Question.jsx';
 import PageContainer from '../components/PageContainer';
 import palette from '../utils/palette';
-import useLoggedUser from '../hooks/useUserLogged';
+import useLoggedUser from '../hooks/useTestStarted';
 
 const useStyles = makeStyles((theme) => ({
     progressContainer: {

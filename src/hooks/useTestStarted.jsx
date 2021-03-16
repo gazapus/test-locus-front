@@ -3,7 +3,7 @@ import LocalStorageService from '../services/localstorage.service';
 import { useHistory } from 'react-router-dom';
 import pathnames from '../utils/pathnames';
 
-function useUserLogged() {
+function useTestStarted() {
     const history = useHistory();
     useEffect(() => {
         if(!LocalStorageService.getUserData()) {
@@ -14,4 +14,4 @@ function useUserLogged() {
     return;
 }
 
-export default useUserLogged;
+export default useTestStarted;
