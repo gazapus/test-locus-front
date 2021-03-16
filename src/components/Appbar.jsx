@@ -15,7 +15,10 @@ const useStyles = makeStyles((theme) => ({
     },
     menuIcon: {
         height: '5em',
-        filter: 'brightness(0.9)'
+        filter: 'brightness(0.9)',
+        [theme.breakpoints.between('xs', 'md')]: {
+            height: '4em',
+        },
     }
 }));
 

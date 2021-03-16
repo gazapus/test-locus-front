@@ -38,20 +38,14 @@ function Home() {
     return (
         <PageContainer showLoginButton={true}>
             <div className={classes.root}>
-                <Typography variant={window.innerWidth > 400 ? 'h4' : 'h5'} className={classes.title}>
-                    Carrera de Psicología Educativa y Orientación
-                    </Typography>
-                <Typography variant={window.innerWidth > 400 ? 'h4' : 'h5'} className={classes.title}>
-                    Proyecto para el trabajo de Titulación
-                    </Typography>
-                <Typography className={classes.title}>
+                <Typography variant={'h4'} className={classes.title}>
+                    Test de Locus de Control
+                </Typography>
+                <Typography variant={'h5'} className={classes.title}>
                     Instrumento: Inventario personal sobre algunas situaciones sociales de Rotter.
-                    </Typography>
-                <Typography className={classes.locus}>
-                    (Locus de Control)
-                    </Typography>
+                </Typography>
                 <Link to={pathnames.test_form} style={{ textDecoration: 'none' }}>
-                    <Button variant="contained" color="secondary" size="large" className={classes.button}>TEST LOCUS</Button>
+                    <Button variant="contained" color="secondary" size="large" className={classes.button}>TEST</Button>
                 </Link>
             </div>
         </PageContainer>
