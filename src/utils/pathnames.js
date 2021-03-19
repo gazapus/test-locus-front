@@ -9,7 +9,8 @@ const Paths = {
     register: '/register',
     confirmation: '/confirmation/:user_id',
     start_test: '/test/start/:username',
-    link_test: '/personal/link'
+    link_test: '/personal/link',
+    results: '/personal/results',
 }
 
 export default Paths;
