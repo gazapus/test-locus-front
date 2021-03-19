@@ -59,6 +59,7 @@ function TestLink() {
     const [mailURL, setMailURL] = useState("mailto:?subject=Enlace%20para%20la%20realización%20del%20Test%20Locus%20de%20Control&body=Resuelve%20el%20test%20siguiendo%20este%20enlace:%20");
     const userLogged = useLoggedUser();
     const classes = useStyles();
+    document.title = "Locus de Control | Enlace del Test"
     
     useEffect(() => {
         const URL_BASE = `${pathnames.server}/test/start/`;
@@ -72,7 +73,7 @@ function TestLink() {
     }, [userLogged])
 
     return (
-        <PageContainer align="center">
+        <PageContainer align="center" showLoginButton>
                 <div className={classes.StyledBox}>
                     <Typography variant="h4" style={{margin: '1em'}} align="center">Enlace para realizar el test:</Typography>
                     <div style={{ display: 'flex', width: '100%' }}>
