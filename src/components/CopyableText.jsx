@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { useRef, useState } from 'react';
-//import Alert from './Alert';
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
     StyledContainer: {
@@ -36,6 +36,13 @@ const useStyles = makeStyles((theme) => ({
         '&:focus': {
             outline: 'none',
         }
+    },
+    alert: {
+        position: 'absolute',
+        top: '1em',
+        right: '1em',
+        display: 'flex',
+        zIndex: 1100,
     }
 }))
 
@@ -73,6 +80,12 @@ function CopyableText({ children }) {
             >
                 COPIAR
             </button>
+            { alertFlag !== 0 ? 
+                <div className={classes.alert}>
+                    <Alert onClose={() => { setAlertFlag(0) }}>Enlace copiado al portapapeles</Alert>
+                </div> 
+                : ''
+            }
         </div>
     )
 }
