@@ -90,6 +90,11 @@ function Login() {
     })
 
     useEffect(() => {
+        if(AuthService.getCurrentUser()) history.push(pathnames.home);
+    }, [])
+
+
+    useEffect(() => {
         if(succefullyLogged) history.push(pathnames.home);
     }, [succefullyLogged])
 

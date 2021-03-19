@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -92,6 +92,10 @@ function Register() {
         validateOnChange: false,
         validateOnBlur: false,
     })
+
+    useEffect(() => {
+        if(AuthService.getCurrentUser()) history.push(pathnames.home);
+    }, [])
 
     return (
         <PageContainer align="center" backgroundColor={palette.background}>
