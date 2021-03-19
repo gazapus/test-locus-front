@@ -95,6 +95,7 @@ function Register() {
 
     useEffect(() => {
         if(AuthService.getCurrentUser()) history.push(pathnames.home);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

@@ -91,11 +91,12 @@ function Login() {
 
     useEffect(() => {
         if(AuthService.getCurrentUser()) history.push(pathnames.home);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
 
     useEffect(() => {
         if(succefullyLogged) history.push(pathnames.home);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [succefullyLogged])
 
     return (
