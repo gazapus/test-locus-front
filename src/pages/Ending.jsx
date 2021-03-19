@@ -6,7 +6,7 @@ import TestService from '../services/test.service';
 import pathnames from '../utils/pathnames';
 import palette from '../utils/palette';
 import PageContainer from '../components/PageContainer';
-import useLoggedUser from '../hooks/useUserLogged';
+import useTestStarted from '../hooks/useTestStarted';
 import LocalStorageService from '../services/localstorage.service';
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +58,7 @@ function Ending({ location }) {
     const [loading, setLoading] = useState(false);
     const [succefullySaved, setSuccefullySaved] = useState(false);
     const classes = useStyles();
-    useLoggedUser();
+    useTestStarted();
 
     document.title = "Locus de Control | Finalización"
 
@@ -66,7 +66,6 @@ function Ending({ location }) {
         setLoading(true)
         let userData = LocalStorageService.getUserData();
         let username = LocalStorageService.getUsernameTest();
-        console.log(username)
         let requestData = { ...userData, ...{ results: location.state.results } };
         TestService.create(requestData, username)
             .then(res => setSuccefullySaved(true))
