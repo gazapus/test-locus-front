@@ -48,16 +48,12 @@ function Test() {
         let newAnswers = [...answers];
         newAnswers[currentQuestion] = optionChosen;
         setAnswers(newAnswers);
-        nextQuestion();
-    }
-
-    function nextQuestion() {
         if (currentQuestion < TOTAL_QUESTIONS - 1) {
             setCurrentQuestion(currentQuestion + 1)
         } else {
             history.push({
                 pathname: pathnames.test_end,
-                state: { results: answers}
+                state: { results: newAnswers }
             })
         }
     }

@@ -8,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
-import LaunchIcon from '@material-ui/icons/Launch';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { Button } from '@material-ui/core';
 
@@ -22,7 +21,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function BasicTable({ answers = [], onDelete }) {
+export default function BasicTable({ answers = [], onDetails, onDelete }) {
     const classes = useStyles();
 
     return (
@@ -31,30 +30,30 @@ export default function BasicTable({ answers = [], onDelete }) {
                 <TableHead>
                     <TableRow>
                         <TableCell>Alias</TableCell>
-                        <TableCell align="right">Locus</TableCell>
-                        <TableCell align="right">Grado</TableCell>
-                        <TableCell align="right">Institución</TableCell>
-                        <TableCell align="right">Sexo</TableCell>
-                        <TableCell align="right">Edad</TableCell>
-                        <TableCell align="right">Detalles</TableCell>
-                        <TableCell align="right"></TableCell>
+                        <TableCell align="left">Locus</TableCell>
+                        <TableCell align="left">Grado</TableCell>
+                        <TableCell align="left">Institución</TableCell>
+                        <TableCell align="left">Sexo</TableCell>
+                        <TableCell align="left">Edad</TableCell>
+                        <TableCell align="left">Detalles</TableCell>
+                        <TableCell align="left"></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {answers.map((row) => (
-                        <TableRow key={row.alias} hover={true}>
+                        <TableRow key={row.id} hover={true}>
                             <TableCell component="th" scope="row">{row.alias}</TableCell>
-                            <TableCell align="right">{row.locus}</TableCell>
-                            <TableCell align="right">{row.grade}</TableCell>
-                            <TableCell align="right">{row.institution}</TableCell>
-                            <TableCell align="right">{row.sex}</TableCell>
-                            <TableCell align="right">{row.age}</TableCell>
-                            <TableCell align="right">
-                                <Button className={classes.button} color="primary" onClick={() => { }}>
+                            <TableCell align="left">{row.locus}</TableCell>
+                            <TableCell align="left">{row.grade}</TableCell>
+                            <TableCell align="left">{row.institution}</TableCell>
+                            <TableCell align="left">{row.sex}</TableCell>
+                            <TableCell align="left">{row.age}</TableCell>
+                            <TableCell align="left">
+                                <Button className={classes.button} color="primary" onClick={() => onDetails(row)}>
                                     Ver
                                 </Button>
                             </TableCell>
-                            <TableCell>
+                            <TableCell align="left">
                                 <IconButton className={classes.button} color="secondary" onClick={() => onDelete(row.id)}>
                                     <DeleteForeverIcon />
                                 </IconButton>
