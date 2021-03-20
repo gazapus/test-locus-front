@@ -1,5 +1,7 @@
 # Deuda:
 - Implementar sesiones temporales localmente
+- Agregar enviar respuesta con enter en preguntas
+- Estilizar Alert de confirmación
 
 # TO DO
 - Realizar los tests a través del link

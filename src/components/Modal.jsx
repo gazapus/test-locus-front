@@ -29,7 +29,9 @@ const useStyles = makeStyles((theme) => ({
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: 0,
-        minHeight: '30vh'
+        minHeight: '30vh',
+        maxHeight: '90vh',
+        overflowY: 'auto'
     },
     
 }));
