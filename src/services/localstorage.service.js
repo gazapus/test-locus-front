@@ -22,13 +22,19 @@ function removeUsernameTest() {
     sessionStorage.removeItem('username_test');
 }
 
+function clearAll() {
+    sessionStorage.removeItem('username_test');
+    sessionStorage.removeItem('user_test');
+}
+
 let methods = {
     setUserData,
     getUserData,
     removeUserData,
     setUsernameTest,
     getUsernameTest,
-    removeUsernameTest
+    removeUsernameTest,
+    clearAll
 };
 
 export default methods;

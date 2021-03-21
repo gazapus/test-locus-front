@@ -6,6 +6,7 @@ import TestForm from './pages/TestForm';
 import Instrucction from './pages/Instrucction';
 import Test from './pages/Test';
 import TestEnding from './pages/Ending';
+import TestEndingFree from './pages/EndingFree';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Confirmation from './pages/Confirmation';
@@ -21,6 +22,7 @@ function Routes() {
             <Route exact path={pathNames.test_instrucction} component={Instrucction}/>
             <Route exact path={pathNames.test_play} component={Test}/>
             <Route exact path={pathNames.test_end} component={TestEnding}/>
+            <Route exact path={pathNames.test_endFree} component={TestEndingFree}/>
             <Route exact path={pathNames.register} component={Register}/>
             <Route exact path={pathNames.login} component={Login}/>
             <Route exact path={pathNames.confirmation} component={Confirmation}/>

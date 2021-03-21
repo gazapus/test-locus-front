@@ -33,7 +33,7 @@ function Results() {
     useEffect(() => {
         TestService.getByUser()
             .then(res => setAnswers(res.data))
-            .catch(err => console.error(err));
+            .catch(err => alert(err.response.data.message));
     }, [])
 
     function deleteTest(id) {

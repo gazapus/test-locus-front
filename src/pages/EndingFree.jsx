@@ -56,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Ending({ location }) {
     const [loading, setLoading] = useState(false);
-    const [succefullySaved, setSuccefullySaved] = useState(false);
+    const [results, setResults] = useState({});
+    const [succefullyCalculated, setSuccefullyCalculated] = useState(false);
     const classes = useStyles();
     useTestStarted();
 
@@ -64,35 +65,44 @@ function Ending({ location }) {
 
     useEffect(() => {
         setLoading(true)
-        let userData = LocalStorageService.getUserData();
-        let username = LocalStorageService.getUsernameTest();
-        let requestData = { ...userData, ...{ results: location.state.results } };
-        TestService.create(requestData, username)
-            .then(res => setSuccefullySaved(true))
-            .catch(err => alert(err.response.data.message))
-            .finally(() => {
-                setLoading(false)
+        TestService.calculateResults({ answers: location.state.results })
+            .then(res => {
+                setResults(res.data);
+                setSuccefullyCalculated(true);
             })
-        return ( () => LocalStorageService.clearAll() );
+            .catch(err => alert(err.response.data.message))
+            .finally(() => setLoading(false))
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        return (() => LocalStorageService.clearAll())
     }, [])
 
+    if (loading) return (
+        <PageContainer align="center" backgroundColor={palette.background} justify="center">
+            <div className={classes.root}>
+                <Typography variant="h5" className={classes.textNormal}>Cargando resultados</Typography>
+                <p className={classes.text}>Espere que termine de procesar los datos</p>
+                <CircularProgress />
+            </div>
+        </PageContainer>
+    )
     return (
         <PageContainer align="center" backgroundColor={palette.background} justify="center">
             <div className={classes.root}>
-                <Typography
-                    variant="h5"
-                    className={loading ? classes.textNormal : succefullySaved ? classes.textRight : classes.textWrong}
-                >
-                    {loading ? 'Cargando resultados' : succefullySaved ? 'Test guardado correctamente' : 'No se pudo guardar el test'}
-                </Typography>
-                <p className={classes.text}>
-                    {loading ? 'Espere que termine de guardar los datos' : succefullySaved ? 'Muchas gracias por participar' : 'Reintente de vuelta'}
-                </p>
-                {loading ? <CircularProgress /> :
-                    <Link to={pathnames.home} style={{ textDecoration: 'none' }}>
-                        <Button color="primary" variant="contained" size="large">Aceptar</Button>
-                    </Link>}
+                {
+                    succefullyCalculated ?
+                        <>
+                            <Typography variant="h4">Resultado del Test:</Typography>
+                            <Typography variant="h5" className={classes.textRight} style={{margin: '1em'}}>{results.locus}</Typography>
+
+                            <Typography variant="body1">{'Respuestas de Locus Interno: ' + results.internal}</Typography>
+                            <Typography variant="body1">{'Respuestas de Locus Externo: ' + results.external}</Typography>
+                        </>
+                        :
+                        <Typography variant="h5" className={classes.textWrong}>No se pudo calcular el test</Typography>
+                }
+                <Link to={pathnames.home} style={{ textDecoration: 'none', margin: '1em' }}>
+                    <Button color="primary" variant="contained" size="large">Aceptar</Button>
+                </Link>
             </div>
         </PageContainer>
     )

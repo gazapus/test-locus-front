@@ -13,10 +13,15 @@ function remove(id) {
     return http.delete(`/test/delete/${id}`, { headers: authHeader()})
 }
 
+function calculateResults(data) {
+    return http.post(`/test/get-results`, data)
+}
+
 const methods = {
     create,
     getByUser,
-    remove
+    remove,
+    calculateResults
 }
 
 export default methods;

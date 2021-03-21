@@ -7,7 +7,8 @@ import pathnames from '../utils/pathnames';
 import Question from '../components/Question.jsx';
 import PageContainer from '../components/PageContainer';
 import palette from '../utils/palette';
-import useLoggedUser from '../hooks/useTestStarted';
+import useTestStarted from '../hooks/useTestStarted';
+import LocalStorageService from '../services/localstorage.service';
 
 const useStyles = makeStyles((theme) => ({
     progressContainer: {
@@ -42,7 +43,7 @@ function Test() {
     const classes = useStyles();
     let history = useHistory();
     document.title = "Locus de Control | Test"
-    useLoggedUser();
+    useTestStarted();
 
     function saveAnswer(optionChosen) {
         let newAnswers = [...answers];
@@ -52,7 +53,7 @@ function Test() {
             setCurrentQuestion(currentQuestion + 1)
         } else {
             history.push({
-                pathname: pathnames.test_end,
+                pathname: LocalStorageService.getUsernameTest() ? pathnames.test_end : pathnames.test_endFree,
                 state: { results: newAnswers }
             })
         }

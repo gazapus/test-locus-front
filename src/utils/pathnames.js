@@ -5,6 +5,7 @@ const Paths = {
     test_instrucction: '/test/instrucctions',
     test_play: '/test/play',
     test_end: '/test/end',
+    test_endFree: '/test/endfree',
     login: '/login',
     register: '/register',
     confirmation: '/confirmation/:user_id',
