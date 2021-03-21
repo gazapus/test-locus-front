@@ -10,8 +10,9 @@ const useStyle = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: '8vh',
         paddingBottom: '2em',
+        flexGrow: 1,
+        justifyContent: 'center'
     },
     title: {
         textAlign: 'center',
@@ -45,7 +46,7 @@ function Home() {
                     Instrumento: Inventario personal sobre algunas situaciones sociales de Rotter.
                 </Typography>
                 <Link to={pathnames.test_form} style={{ textDecoration: 'none' }}>
-                    <Button variant="contained" color="secondary" size="large" className={classes.button}>TEST</Button>
+                    <Button variant="contained" color="secondary" size="large" className={classes.button}>PROBAR TEST</Button>
                 </Link>
             </div>
         </PageContainer>
