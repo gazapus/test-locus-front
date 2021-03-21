@@ -61,7 +61,7 @@ function UserButton() {
                 onClose={handleClose}
             >
                 <MenuItem onClick={() => handleSelect(pathnames.link_test)}>Link del Test</MenuItem>
-                <MenuItem onClick={handleClose}>Mi Cuenta</MenuItem>
+                <MenuItem onClick={() => handleSelect(pathnames.profile)}>Mi Cuenta</MenuItem>
                 <MenuItem onClick={() => handleSelect(pathnames.results)}>Resultados</MenuItem>
                 <MenuItem onClick={handleLogout}>Salir</MenuItem>
             </Menu>
