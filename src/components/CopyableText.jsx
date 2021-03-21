@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     StyledContainer: {
         display: 'flex',
         boxSizing: 'border-box',
-        minWidth: '4em',
+        minWidth: '3em',
         flexGrow: 1
     },
     StyledText: {

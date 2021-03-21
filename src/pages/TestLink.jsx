@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 function TestLink() {
     const [link, setLink] = useState("");
-    const [whatsappURL, setWhatsappURL] = useState("https://api.whatsapp.com/send?text=Resuelve%20el%20test%20de%20caras%20siguiendo%20este%20enlace:%20");
+    const [whatsappURL, setWhatsappURL] = useState("https://api.whatsapp.com/send?text=Resuelve%20el%20test%20de%20locus%20de%20control%20siguiendo%20este%20enlace:%20");
     const [mailURL, setMailURL] = useState("mailto:?subject=Enlace%20para%20la%20realización%20del%20Test%20Locus%20de%20Control&body=Resuelve%20el%20test%20siguiendo%20este%20enlace:%20");
     const userLogged = useLoggedUser();
     const classes = useStyles();
