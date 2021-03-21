@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, IconButton } from '@material-ui/core';
+import { Typography, IconButton, CircularProgress } from '@material-ui/core';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Table from '../components/Table';
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Results() {
     const [answers, setAnswers] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [testOpen, setTestOpen] = useState({});
 
     const classes = useStyles();
@@ -33,7 +34,8 @@ function Results() {
     useEffect(() => {
         TestService.getByUser()
             .then(res => setAnswers(res.data))
-            .catch(err => alert(err.response.data.message));
+            .catch(err => alert(err.response.data.message))
+            .finally(() => setLoading(false))
     }, [])
 
     function deleteTest(id) {
@@ -69,6 +71,7 @@ function Results() {
             <Typography variant="h4" style={{ margin: '1em' }}>Resultados</Typography>
             <div className={classes.table}>
                 <Table answers={answers} onDelete={deleteTest} onDetails={openDetails} />
+                { loading ? <CircularProgress/> : ''}
             </div>
             <Modal open={Object.keys(testOpen).length !== 0} >
                 <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
