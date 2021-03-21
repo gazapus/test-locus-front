@@ -1,12 +1,27 @@
 import http from "../utils/http-common";
-//import authHeader from './auth-header';
+import authHeader from './auth-header';
 
 function check_username(username) {
     return http.get(`/user/check/username/${username}`)
 };
 
+function update_username(data) {
+    return http.put(`/user/update/one/username`, data, { headers: authHeader()})
+};
+
+function update_email(data) {
+    return http.put(`/user/update/one/mail`, data, { headers: authHeader()})
+};
+
+function update_password(data) {
+    return http.put(`/user/update/one/password`, data, { headers: authHeader()})
+};
+
 let methods = {
-    check_username
+    check_username,
+    update_username,
+    update_email,
+    update_password
 }
 
 export default methods;

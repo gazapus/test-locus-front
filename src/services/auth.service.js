@@ -32,13 +32,29 @@ function isLogged() {
     return http.get("/auth/check", { headers: authHeader() });
 };
 
+function updateUsername(newUsername) {
+    let user = JSON.parse(localStorage.getItem("user"));
+    user.username = newUsername;
+    localStorage.setItem("user", JSON.stringify(user));
+    return user;
+}
+
+function updateEmail(newEmail) {
+    let user = JSON.parse(localStorage.getItem("user"));
+    user.email = newEmail;
+    localStorage.setItem("user", JSON.stringify(user));
+    return user;
+}
+
 let methods = {
     signup,
     login,
     confirm,
     logout,
     getCurrentUser,
-    isLogged
+    isLogged,
+    updateUsername,
+    updateEmail
 }
 
 export default methods;
