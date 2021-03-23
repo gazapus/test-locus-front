@@ -14,6 +14,8 @@ import StartTest from './pages/StartTest';
 import TestLink from './pages/TestLink';
 import Results from './pages/Results';
 import Profile from './pages/Profile';
+import ConfirmChange from './pages/ConfirmChange';
+//import CancelChange from './pages/CancelChange';
 
 function Routes() {
     return (
@@ -31,6 +33,7 @@ function Routes() {
             <Route exact path={pathNames.link_test} component={TestLink}/>
             <Route exact path={pathNames.results} component={Results}/>
             <Route exact path={pathNames.profile} component={Profile}/>
+            <Route exact path={pathNames.confirm_change} component={ConfirmChange}/>
         </Switch>
     );
 }

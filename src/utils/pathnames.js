@@ -12,7 +12,9 @@ const Paths = {
     start_test: '/test/start/:username',
     link_test: '/personal/link',
     results: '/personal/results',
-    profile: '/personal/profile'
+    profile: '/personal/profile',
+    confirm_change: '/confirm-change/:id',
+    cancel_change: '/cancel-change/:id',
 }
 
 export default Paths;
