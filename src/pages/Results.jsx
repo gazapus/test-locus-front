@@ -9,6 +9,9 @@ import PageContainer from '../components/PageContainer';
 import Modal from '../components/Modal';
 import CloseIcon from '@material-ui/icons/Close';
 import questions from '../data/questions';
+import pathnames from '../utils/pathnames';
+import { useHistory } from 'react-router-dom';
+import AuthService from '../services/auth.service';
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -28,10 +31,12 @@ function Results() {
     const [answers, setAnswers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [testOpen, setTestOpen] = useState({});
-
+    const history = useHistory();
     const classes = useStyles();
 
     useEffect(() => {
+        const user = AuthService.getCurrentUser();
+        if(!user) return history.push(pathnames.login);
         TestService.getByUser()
             .then(res => setAnswers(res.data))
             .catch(err => alert(err.response.data.message))

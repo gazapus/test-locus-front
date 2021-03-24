@@ -72,8 +72,8 @@ function Ending({ location }) {
             })
             .catch(err => alert(err.response.data.message))
             .finally(() => setLoading(false))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         return (() => LocalStorageService.clearAll())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (loading) return (

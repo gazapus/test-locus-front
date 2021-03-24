@@ -10,7 +10,6 @@ function useUserLogged() {
         let user = AuthService.getCurrentUser();
         setUserLogged(user);
         if (!user) {
-            alert("Debe iniciar sesión primero")
             history.push(pathnames.login);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
