@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
 
@@ -31,6 +31,7 @@ function AlertWindow({ children, open, close, type }) {
             }
         }, 100);
         return (() => clearInterval(fadeEffect))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [alertRef, open, type]);
     
     return open ?
