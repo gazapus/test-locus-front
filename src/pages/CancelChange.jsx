@@ -32,7 +32,7 @@ function ConfirmChange(props) {
     return (
         <div className={classes.root}>
             <Typography variant="h5" className={classes.message}>
-                Se ha confirmado su nueva dirección de correo electrónico correctamente
+                Se ha cancelado el cambio de correo electrónico correctamente
             </Typography>
             <Button 
                 onClick={() => history.push(pathnames.login)}
@@ -45,4 +45,4 @@ function ConfirmChange(props) {
     )
 }
 
-export default withProcessChange('confirm', ConfirmChange)
+export default withProcessChange('cancel', ConfirmChange)
