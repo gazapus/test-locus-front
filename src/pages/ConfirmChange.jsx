@@ -27,7 +27,7 @@ function ConfirmChange(props) {
 
     useEffect(() => {
         AuthService.logout();
-    })
+    }, [])
 
     return (
         <div className={classes.root}>

@@ -24,7 +24,7 @@ function withProcessChange(action, WrappedComponent) {
                     .catch(err => setErrorMessage(err.response.data.message))
                     .finally(() => setLoading(false))
             }
-        })
+        }, [id])
 
         if(loading) return (
             <PageContainer align="center">
