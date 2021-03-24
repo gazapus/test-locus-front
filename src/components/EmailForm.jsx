@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, CircularProgress } from '@material-ui/core';
-import UserService from '../services/user.service';
+import RequestChangeService from '../services/requestchange.service';
 import AuthService from '../services/auth.service';
 import validators from '../utils/validators';
 
@@ -17,18 +17,18 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function EmailForm({user, launchAlert}) {
+function EmailForm({email, launchAlert}) {
     const [loading, setLoading] = useState(false);
     const classes = useStyles();
     const formik = useFormik({
         initialValues: {
-            username: ''
+            email: ''
         },
         onSubmit: values => {
             setLoading(true)
-            UserService.update_email(values)
+            RequestChangeService.create(values)
                 .then(res => {
-                    launchAlert('Email modificado correctamente', 'success');
+                    launchAlert('Se ha enviado un email para confirmar los cambios', 'success');
                     AuthService.updateEmail(values.email)
                 })
                 .catch(err => {
@@ -51,13 +51,13 @@ function EmailForm({user, launchAlert}) {
                 id="email"
                 name="email"
                 label="Email"
-                placeholder={user.email}
+                placeholder={email}
                 variant="outlined"
                 value={formik.values.email}
                 helperText={formik.errors.email}
                 error={formik.errors.email}
                 onChange={formik.handleChange}
-                InputProps={{ inputProps: { maxLength: 20 } }}
+                InputProps={{ inputProps: { maxLength: 50 } }}
             />
             {
                 loading ?

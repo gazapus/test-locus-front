@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function UsernameForm({user, launchAlert}) {
+function UsernameForm({username, launchAlert}) {
     const [loading, setLoading] = useState(false);
     const classes = useStyles();
     const formikUsername = useFormik({
@@ -28,7 +28,7 @@ function UsernameForm({user, launchAlert}) {
             UserService.update_username(values)
                 .then(res => {
                     launchAlert('Nombre de usuario modificado correctamente', 'success');
-                    AuthService.updateUsername(values.username)
+                    AuthService.updateUsername(values.username);
                 })
                 .catch(err => {
                     launchAlert(err.response.data.message, 'error');
@@ -52,7 +52,7 @@ function UsernameForm({user, launchAlert}) {
                 id="username"
                 name="username"
                 label="Nombre de usuario"
-                placeholder={user.username}
+                placeholder={username}
                 variant="outlined"
                 value={formikUsername.values.username}
                 helperText={formikUsername.errors.username}

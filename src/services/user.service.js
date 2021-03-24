@@ -9,10 +9,6 @@ function update_username(data) {
     return http.put(`/user/update/one/username`, data, { headers: authHeader()})
 };
 
-function update_email(data) {
-    return http.put(`/user/update/one/mail`, data, { headers: authHeader()})
-};
-
 function update_password(data) {
     return http.put(`/user/update/one/password`, data, { headers: authHeader()})
 };
@@ -20,7 +16,6 @@ function update_password(data) {
 let methods = {
     check_username,
     update_username,
-    update_email,
     update_password
 }
 

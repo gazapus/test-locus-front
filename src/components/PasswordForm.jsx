@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, CircularProgress } from '@material-ui/core';
 import UserService from '../services/user.service';
-import AuthService from '../services/auth.service';
 
 const useStyles = makeStyles((theme) => ({
     form: {

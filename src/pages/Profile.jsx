@@ -10,6 +10,8 @@ import UsernameForm from '../components/UsernameForm';
 import EmailForm from '../components/EmailForm';
 import PasswordForm from '../components/PasswordForm';
 import Alert from '../components/Alert';
+import pathnames from '../utils/pathnames';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,18 +49,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Profile() {
-    const [user, setUser] = useState({});
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
     const [expanded, setExpanded] = useState(false);
+    const history = useHistory();
     const classes = useStyles();
-
+    
     document.title = "Locus de Control | Perfil"
 
     useEffect(() => {
-        setUser(AuthService.getCurrentUser());
-    }, [])
+        const user = AuthService.getCurrentUser();
+        if(!user) return history.push(pathnames.login);
+        setUsername(user.username);
+        setEmail(user.email);
+    }, [alertMessage, history])
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -68,6 +75,7 @@ function Profile() {
         setAlertOpen(true);
         setAlertMessage(message);
         setAlertType(type);
+        setExpanded('')
     }
 
     return (
@@ -81,10 +89,10 @@ function Profile() {
                         id="panel1bh-header"
                     >
                         <Typography className={classes.heading}>Nombre de usuario</Typography>
-                        <Typography className={classes.secondaryHeading}>{expanded !== 'panel1' ? user.username : ''}</Typography>
+                        <Typography className={classes.secondaryHeading}>{expanded !== 'panel1' ? username : ''}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <UsernameForm user={user} launchAlert={launchAlert}/>
+                        <UsernameForm username={username} launchAlert={launchAlert}/>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -94,10 +102,10 @@ function Profile() {
                         id="panel2bh-header"
                     >
                         <Typography className={classes.heading}>Correo electrónico</Typography>
-                        <Typography className={classes.secondaryHeading}>{expanded !== 'panel2' ? user.email : ''}</Typography>
+                        <Typography className={classes.secondaryHeading}>{expanded !== 'panel2' ? email : ''}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <EmailForm user={user} launchAlert={launchAlert}/>
+                        <EmailForm email={email} launchAlert={launchAlert}/>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
