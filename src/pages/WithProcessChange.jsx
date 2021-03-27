@@ -13,16 +13,29 @@ function withProcessChange(action, WrappedComponent) {
         const [changeAccepted, setChangeAccepted] = useState(false);
 
         useEffect(() => {
-            if (action === "confirm") {
-                RequestChangeService.confirm(id)
-                    .then(res => setChangeAccepted(true))
-                    .catch(err => setErrorMessage(err.response.data.message))
-                    .finally(() => setLoading(false))
-            } else {
-                RequestChangeService.cancel(id)
-                    .then(res => setChangeAccepted(true))
-                    .catch(err => setErrorMessage(err.response.data.message))
-                    .finally(() => setLoading(false))
+            switch(action) {
+                case "confirm": {
+                    RequestChangeService.confirm(id)
+                        .then(res => setChangeAccepted(true))
+                        .catch(err => setErrorMessage(err.response.data.message))
+                        .finally(() => setLoading(false));
+                    break;
+                }
+                case "cancel": {
+                    RequestChangeService.cancel(id)
+                        .then(res => setChangeAccepted(true))
+                        .catch(err => setErrorMessage(err.response.data.message))
+                        .finally(() => setLoading(false));
+                    break;
+                }
+                case "changeemail": {
+                    RequestChangeService.confirmChangePassword(id)
+                        .then(res => setChangeAccepted(true))
+                        .catch(err => setErrorMessage(err.response.data.message))
+                        .finally(() => setLoading(false));
+                    break;
+                }
+                default: setChangeAccepted(false); setLoading(false); break;
             }
         }, [id])
 

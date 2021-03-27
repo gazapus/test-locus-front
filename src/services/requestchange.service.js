@@ -13,10 +13,20 @@ function cancel(id) {
     return http.put(`/changerequest/cancel/${id}`)
 }
 
+function confirmChangePassword(id) {
+    return http.put(`/changepasswordrequest/confirm/${id}`)
+}
+
+function requestChangePassword(data) {
+    return http.post(`/changepasswordrequest/create`, data, { headers: authHeader()})
+}
+
 const methods = {
     create,
     confirm,
-    cancel
+    cancel,
+    confirmChangePassword,
+    requestChangePassword
 }
 
 export default methods;
