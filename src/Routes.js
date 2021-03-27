@@ -16,6 +16,7 @@ import Results from './pages/Results';
 import Profile from './pages/Profile';
 import ConfirmChange from './pages/ConfirmChange';
 import CancelChange from './pages/CancelChange';
+import RestartPassword from './pages/RestartPassword';
 
 function Routes() {
     return (
@@ -35,6 +36,7 @@ function Routes() {
             <Route exact path={pathNames.profile} component={Profile}/>
             <Route exact path={pathNames.confirm_change} component={ConfirmChange}/>
             <Route exact path={pathNames.cancel_change} component={CancelChange}/>
+            <Route exact path={pathNames.restart_password} component={RestartPassword}/>
         </Switch>
     );
 }
