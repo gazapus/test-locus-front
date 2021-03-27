@@ -71,7 +71,7 @@ function Login() {
             password: ''
         },
         onSubmit: values => {
-            setLoading(false)
+            setLoading(true)
             AuthService.login(values)
                 .then(res => setSuccefullyLogged(true))
                 .catch(err => alert(err.response.data.message))
@@ -140,6 +140,13 @@ function Login() {
                 </Button>
                 { loading ? <CircularProgress style={{margin: '1em'}} size="1.5em"/> : ''}
             </form>
+            <Button
+                    color="primary"
+                    size="small"
+                    onClick={() => history.push(pathnames.restart_password_form)}
+                >
+                    Olvidé mi contraseña
+                </Button>
         </PageContainer>
     )
 }
