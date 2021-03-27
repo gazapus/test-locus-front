@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, IconButton, CircularProgress } from '@material-ui/core';
+import { Typography, IconButton, CircularProgress, Button } from '@material-ui/core';
+import GetAppIcon from '@material-ui/icons/GetApp';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Table from '../components/Table';
@@ -12,6 +13,7 @@ import questions from '../data/questions';
 import pathnames from '../utils/pathnames';
 import { useHistory } from 'react-router-dom';
 import AuthService from '../services/auth.service';
+import functions from '../utils/functions';
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -36,7 +38,7 @@ function Results() {
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
-        if(!user) return history.push(pathnames.login);
+        if (!user) return history.push(pathnames.login);
         TestService.getByUser()
             .then(res => setAnswers(res.data))
             .catch(err => alert(err.response.data.message))
@@ -74,9 +76,16 @@ function Results() {
     return (
         <PageContainer align="center" showLoginButton >
             <Typography variant="h4" style={{ margin: '1em' }}>Resultados</Typography>
+            {loading ? 
+                <CircularProgress /> 
+                :
+                <Button variant="contained" size="small" color="primary" onClick={() => TestService.exportExcel(answers)} style={{ marginBottom: '1em' }}>
+                    <GetAppIcon fontSize="small" />
+                    &nbsp;EXPORTAR
+                </Button>
+            }
             <div className={classes.table}>
                 <Table answers={answers} onDelete={deleteTest} onDetails={openDetails} />
-                { loading ? <CircularProgress/> : ''}
             </div>
             <Modal open={Object.keys(testOpen).length !== 0} >
                 <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
@@ -91,7 +100,7 @@ function Results() {
                         <Typography variant="body2">{testOpen.locus}</Typography>
                         <Typography variant="body2">Interno: {testOpen.external}</Typography>
                         <Typography variant="body2">Externo: {testOpen.internal}</Typography>
-                        <Typography variant="body2">Fecha: {testOpen.createdAt}</Typography>
+                        <Typography variant="body2">Fecha: {testOpen.createdAt ? functions.convertDate(testOpen.createdAt) : ''}</Typography>
                     </div>
                     {
                         testOpen.results ?

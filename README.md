@@ -4,6 +4,5 @@
 - Estilizar Alert de confirmación
 
 # TO DO
-- CREAR DASHBOARD
-- CREAR PERFIL
-- CONFIRMAR CAMBIO DE CONTRASEÑA
+- Agegar mensaje sin datos a resultados vacios
+- Agregar recuperacion de contraseñas
