@@ -15,7 +15,8 @@ const Paths = {
     profile: '/personal/profile',
     confirm_change: '/confirm-change/:id',
     cancel_change: '/cancel-change/:id',
-    restart_password: '/restart-password/:id'
+    restart_password: '/restart-password/:id',
+    restart_password_form: '/personal/restart-password',
 }
 
 export default Paths;
