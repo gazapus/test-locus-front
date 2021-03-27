@@ -4,5 +4,4 @@
 - Estilizar Alert de confirmación
 
 # TO DO
-- Agegar mensaje sin datos a resultados vacios
-- Agregar recuperacion de contraseñas
+- Agregar recuperacion de contraseñas 

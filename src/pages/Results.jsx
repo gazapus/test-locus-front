@@ -43,7 +43,7 @@ function Results() {
             .then(res => setAnswers(res.data))
             .catch(err => alert(err.response.data.message))
             .finally(() => setLoading(false))
-    }, [])
+    }, [history])
 
     function deleteTest(id) {
         confirmAlert({
@@ -86,6 +86,7 @@ function Results() {
             }
             <div className={classes.table}>
                 <Table answers={answers} onDelete={deleteTest} onDetails={openDetails} />
+                { !loading && answers.length === 0 ? <Typography variant="body2" align="center">No hay tests hechos aún</Typography>: ''}
             </div>
             <Modal open={Object.keys(testOpen).length !== 0} >
                 <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
@@ -126,7 +127,7 @@ function Results() {
                     }
                     <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                         <IconButton color="secondary" onClick={() => setTestOpen({})}>
-                            <CloseIcon />
+                            <CloseIcon/>
                         </IconButton>
                     </div>
                 </div>
