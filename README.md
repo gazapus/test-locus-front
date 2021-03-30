@@ -4,4 +4,5 @@
 - Estilizar Alert de confirmación
 
 # TO DO
-- Agregar recuperacion de contraseñas 
+- Corregir responsividad de copyableText
+- Eliminar cuenta

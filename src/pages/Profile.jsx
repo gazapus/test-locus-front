@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Typography, Button } from '@material-ui/core';
 import PageContainer from '../components/PageContainer';
 import EditIcon from '@material-ui/icons/Edit';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -12,6 +12,7 @@ import PasswordForm from '../components/PasswordForm';
 import Alert from '../components/Alert';
 import pathnames from '../utils/pathnames';
 import { useHistory } from 'react-router-dom';
+import ModalDeleteAccount from '../components/ModalDeleteAccount';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,12 +46,20 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         height: '100%',
         flexWrap: 'wrap'
+    },
+    deleteAccountContainer: {
+        display: 'flex',
+        flexDirection: 'row-reverse',
+        width: '100%',
+        padding: '1em 0 1em 0',
+        boxSizing: 'border-box'
     }
 }));
 
 function Profile() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
+    const [deleteAccountWindow, setDeleteAccountWindow] = useState(false);
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [alertType, setAlertType] = useState('');
@@ -121,6 +130,9 @@ function Profile() {
                         <PasswordForm launchAlert={launchAlert}/>
                     </AccordionDetails>
                 </Accordion>
+                <div className={classes.deleteAccountContainer}>
+                    <Button size="small" color="default" onClick={() => setDeleteAccountWindow(true)}>Eliminar cuenta</Button>
+                </div>
             </div>
             <Alert 
                 open={alertOpen} 
@@ -129,6 +141,7 @@ function Profile() {
             >
                 {alertMessage}
             </Alert>
+            <ModalDeleteAccount open={deleteAccountWindow} close={() => setDeleteAccountWindow(false)}/>
         </PageContainer>
     )
 }
