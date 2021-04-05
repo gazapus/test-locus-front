@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1
     },
     menuIcon: {
-        height: '5em',
+        height: '4em',
         filter: 'brightness(0.9)',
         [theme.breakpoints.between('xs', 'md')]: {
             height: '4em',
