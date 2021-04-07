@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core';
 import PageContinaer from '../components/PageContainer';
 import pathanames from '../utils/pathnames';
 import palette from '../utils/palette';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -61,6 +62,10 @@ const useStyles = makeStyles(theme => ({
 function Instrucction() {
     const classes = useStyles();
     document.title = "Locus de Control | Instrucciones"
+
+    useEffect(() => {
+        window.scrollTo({ top: 10, behavior: 'smooth' });
+    }, [])
 
     return (
         <PageContinaer align="center" backgroundColor={palette.background}>

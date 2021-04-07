@@ -7,6 +7,7 @@ import pathnames from '../utils/pathnames';
 import PageContainer from '../components/PageContainer';
 import LocalStorageService from '../services/localstorage.service';
 import palette from '../utils/palette';
+import { useEffect } from 'react';
 
 const useStyle = makeStyles((theme) => ({
     root: {
@@ -59,6 +60,10 @@ function TestForm() {
     const classes = useStyle();
     let history = useHistory();
     document.title = "Locus de Control | Formulario"
+
+    useEffect(() => {
+        window.scrollTo({ top: 10, behavior: 'smooth' });
+    }, [])
 
     const formik = useFormik({
         initialValues: {
