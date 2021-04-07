@@ -62,7 +62,7 @@ const useStyle = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
-        flexGrow: 4,
+        flexGrow: 5,
         flexShrink: 1,
         flexBasis: 0,
     },

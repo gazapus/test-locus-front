@@ -202,24 +202,25 @@ function Home() {
                     <div className={classes.cards}>
                         <MainCard
                             title="¿Que función cumple este test?"
-                            description="Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
-                            Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
-                            de las circunstancias"
+                            description="El locus de control es una variable de la personalidad que representa la atribución que 
+                            una persona lleva a cabo sobre si el esfuerzo que realiza es o no contingente a su conducta.
+                            En este test se descifra el grado en el que considera la persona de tener tienes el control de su vida 
+                            en los eventos que ocurren en ella."
                             logo={InfoLogo}
                         />
                         <MainCard
                             title="¿Son mis resultados seguros?"
-                            description="Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
-                            Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
-                            de las circunstancias"
+                            description="Los resultados son completamente anónimos y no sé compartiran con nadie. 
+                            Nunca asociaremos públicamente tus datos con tus resultados.
+                            Los test que puedas aplicar a otras personas mantienen el mismo nivel de confidencialidad."
                             logo={ShieldLogo}
                             isIconOnRight
                         />
                         <MainCard
-                            title="¿Por que elegir esta plataforma?"
-                            description="Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
-                            Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
-                            de las circunstancias"
+                            title="¿Por que usar esta plataforma?"
+                            description="Además de la autoevaluación le proveemos el uso para especialistas que quieran aplicar el test a otra persona,
+                            a través de un simple y gratuito registro puede enviar el test a sus casos estudiados y obtener los resultados en su cuenta 
+                            inmediatamente"
                             logo={WebLogo}
                         />
                     </div>

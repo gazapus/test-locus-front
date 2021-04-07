@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import questions from '../data/questions';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,6 +44,10 @@ function Test() {
     let history = useHistory();
     document.title = "Locus de Control | Test"
     useTestStarted();
+
+    useEffect(() => {
+        window.scrollTo({ top: 10, behavior: 'smooth' });
+    }, [])
 
     function saveAnswer(optionChosen) {
         let newAnswers = [...answers];
