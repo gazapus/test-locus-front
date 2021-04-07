@@ -9,6 +9,7 @@ import ShieldLogo from '../images/shield.png';
 import InfoLogo from '../images/info.png';
 import WebLogo from '../images/global.png';
 import LogoFundation from '../images/logopsy.png';
+import MainCard from '../components/MainCard';
 
 const useStyle = makeStyles(theme => ({
     root: {
@@ -138,76 +139,6 @@ const useStyle = makeStyles(theme => ({
         paddingRight: '1em',
         paddingLeft: '1em'
     },
-    card: {
-        display: 'flex',
-        flexDirection: 'row',
-        margin: '1.5em 0 2.2em 0',
-        minHeight: '20vh',
-        padding: '1em',
-        width: '100%',
-        boxSizing: 'border-box',
-        borderStyle: 'none none solid none',
-        borderWidth: '1pt',
-        borderColor: '#cccccc',
-        [theme.breakpoints.down('sm')]: {
-            flexDirection: 'column',
-            alignItems: 'center',
-            borderRadius: '5px',
-            boxShadow: '10px 5px 20px #8d8d8dAA',
-        },
-    },
-    card_left: {
-        padding: '0 2em 0 2em',
-        display: 'flex',
-        alignItems: 'center',
-        flexGrow: 1,
-        flexShrink: 1,
-        flexBasis: 0,
-        [theme.breakpoints.down('sm')]: {
-            flexGrow: 1,
-            justifyContent: 'center'
-        },
-    },
-    card_left__small: {
-        [theme.breakpoints.down('sm')]: {
-            display: 'flex'
-        },
-        [theme.breakpoints.up('sm')]: {
-            display: 'none'
-        },
-    },
-    card_left__normal: {
-        [theme.breakpoints.down('sm')]: {
-            display: 'none'
-        },
-        [theme.breakpoints.up('sm')]: {
-            display: 'flex'
-        },
-    },
-    card_image: {
-        width: '100%',
-        height: 'auto',
-        [theme.breakpoints.down('sm')]: {
-            width: '30%',
-            padding: '1em'
-        },
-    },
-    card_right: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        flexGrow: 4,
-        flexShrink: 1,
-        flexBasis: 0,
-    },
-    cardRight_title: {
-        textAlign: 'left',
-        [theme.breakpoints.down('sm')]: {
-            textAlign: 'center',
-            fontSize: '1.6em',
-        },
-    },
     aside: {
         flexGrow: 1,
         flexShrink: 1,
@@ -268,52 +199,28 @@ function Home() {
                 </div>
                 <div className={classes.main2}>
                     <div className={classes.cards}>
-                        <div className={classes.card}>
-                            <div className={classes.card_left}>
-                                <img src={InfoLogo} alt="why" className={classes.card_image} />
-                            </div>
-                            <div className={classes.card_right}>
-                                <Typography variant="h4" className={classes.cardRight_title}>
-                                    ¿Por qué debo tomar estos tests?
-                                </Typography>
-                                <Typography variant="body1" align="justify">
-                                    Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
-                                    Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
-                                    de las circunstancias
-                                </Typography>
-                            </div>
-                        </div>
-                        <div className={classes.card}>
-                            <div className={`${classes.card_left} ${classes.card_left__small}`}>
-                                <img src={ShieldLogo} alt="why" className={classes.card_image} />
-                            </div>  
-                            <div className={classes.card_right}>
-                                <Typography variant="h4" className={classes.cardRight_title}>
-                                    ¿Por qué debo tomar estos tests?
-                                </Typography>
-                                <Typography variant="body1" align="justify">
-                                    Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
-                                    Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
-                                    de las circunstancias
-                                </Typography>
-                            </div>
-                            <div className={`${classes.card_left} ${classes.card_left__normal}`}>
-                                <img src={ShieldLogo} alt="why" className={classes.card_image} />
-                            </div>               </div>
-                        <div className={classes.card}>
-                            <div className={classes.card_left}>
-                                <img src={WebLogo} alt="why" className={classes.card_image} />
-                            </div>                            <div className={classes.card_right}>
-                                <Typography variant="h4" className={classes.cardRight_title}>
-                                    ¿Por qué debo tomar estos tests?
-                                </Typography>
-                                <Typography variant="body1" align="justify">
-                                    Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
-                                    Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
-                                    de las circunstancias
-                                </Typography>
-                            </div>
-                        </div>
+                        <MainCard
+                            title="¿Que función cumple este test?"
+                            description="Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
+                            Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
+                            de las circunstancias"
+                            logo={InfoLogo}
+                        />
+                        <MainCard
+                            title="¿Son mis resultados seguros?"
+                            description="Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
+                            Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
+                            de las circunstancias"
+                            logo={ShieldLogo}
+                            isIconOnRight
+                        />
+                        <MainCard
+                            title="¿Por que elegir esta plataforma?"
+                            description="Conoce más sobre como reaccionarás a situaciones anticipadas e inesperadas.
+                            Obtén una comprensión invaluable sobre cómo hacer los ajustes necesarios dependiendo
+                            de las circunstancias"
+                            logo={WebLogo}
+                        />
                     </div>
                     <aside className={classes.aside}>
                         <Typography variant="body1" align="center" className={classes.aside_text}>Colaboración por</Typography>
@@ -321,7 +228,6 @@ function Home() {
                         <Typography variant="body2" align="center" className={classes.aside_footer}>
                             Una ONG dedidacada a la digitalización de herramientas de evaluación psicologica
                         </Typography>
-
                     </aside>
                 </div>
 
