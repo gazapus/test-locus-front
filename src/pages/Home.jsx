@@ -20,6 +20,7 @@ const useStyle = makeStyles(theme => ({
         justifyContent: 'center',
         width: '100%',
         boxSizing: 'border-box',
+        backgroundColor: 'white',
         [theme.breakpoints.down('sm')]: {
             width: '95%',
         },
@@ -178,7 +179,7 @@ function Home() {
     document.title = "Locus de Control"
 
     return (
-        <PageContainer showLoginButton={true} align="center">
+        <PageContainer showLoginButton={true} align="center" backgroundColor="#F7F7F7">
             <div className={classes.root}>
                 <div className={classes.main}>
                     <div className={classes.main_left}>

@@ -1,5 +1,5 @@
 const Paths = {
-    server: process.env.REACT_APP_HOST || 'http://localhost:3000',
+    server: "https://testlocusdecontrol.web.app",
     home: '/',
     test_form: '/test/form',
     test_instrucction: '/test/instrucctions',
