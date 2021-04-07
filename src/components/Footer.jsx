@@ -33,11 +33,13 @@ function Footer() {
     return (
         <AppBar position="relative" className={classes.root}>
             <Toolbar className={classes.content}>
-                <p className={ classes.footerTitle}>
+                <p className={classes.footerTitle}>
+                    Adaptado de: “Instrumentos de evaluación psicológica" (p. 156-158), por González, F., (2007). Editorial Ciencias Médicas. Todos los derechos reservados.
+                    <br/>
                     Universidad Nacional de Loja  |  Carrera de Psicología Educativa y Orientación
                 </p>
                 <p className={ classes.footerText}>
-                    Diseñado por <a href="https://github.com/sendrarisk" style={{textDecoration: 'none', color: 'inherit'}}>Cristian Villafañe</a>
+                    Diseñado por <a href="https://github.com/gazapus" style={{textDecoration: 'none', color: 'inherit'}} target="nblank">Cristian Villafañe</a>
                 </p>
             </Toolbar>
         </AppBar>
