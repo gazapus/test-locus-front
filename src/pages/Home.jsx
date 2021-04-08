@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -10,6 +10,7 @@ import InfoLogo from '../images/info.png';
 import WebLogo from '../images/global.png';
 import LogoFundation from '../images/logopsy.png';
 import MainCard from '../components/MainCard';
+import LocalStorageService from '../services/localstorage.service';
 
 const useStyle = makeStyles(theme => ({
     root: {
@@ -175,7 +176,13 @@ const useStyle = makeStyles(theme => ({
 
 function Home() {
     const classes = useStyle();
-    document.title = "Locus de Control"
+    document.title = "Locus de Control";
+    const history = useHistory();
+
+    function playTestAsGuest() {
+        LocalStorageService.setGuestTest();
+        history.push(pathnames.test_instrucction);
+    }
 
     return (
         <PageContainer showLoginButton={true} align="center">
@@ -194,9 +201,7 @@ function Home() {
                     </div>
                 </div>
                 <div className={classes.testButton_container}>
-                    <Link to={pathnames.test_form} style={{ textDecoration: 'none' }}>
-                        <Button variant="contained" size="large" color="primary">REALIZAR TEST</Button>
-                    </Link>
+                    <Button variant="contained" size="large" color="primary" onClick={playTestAsGuest}>REALIZAR TEST</Button>
                 </div>
                 <div className={classes.main2}>
                     <div className={classes.cards}>

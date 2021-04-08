@@ -6,7 +6,7 @@ import pathnames from '../utils/pathnames';
 function useTestStarted() {
     const history = useHistory();
     useEffect(() => {
-        if(!LocalStorageService.getUserData()) {
+        if(!LocalStorageService.getUserData() && !LocalStorageService.isGuestTest()) {
             alert("Debe llenar el formulario primero")
             history.push(pathnames.home);
         }
