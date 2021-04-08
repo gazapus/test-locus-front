@@ -206,7 +206,7 @@ function Home() {
                             description="El locus de control es una variable de la personalidad que representa la atribución que 
                             una persona lleva a cabo sobre si el esfuerzo que realiza es o no contingente a su conducta.
                             Puede ser interno (cuando creemos que tenemos todo el control de lo que nos pasa) o externo 
-                            (cuando creemos que son otras personas o las circunstancias las que dominan nuestra vida)"
+                            (cuando creemos que son otras personas o las circunstancias las que dominan nuestra vida)."
                             logo={InfoLogo}
                         />
                         <MainCard
