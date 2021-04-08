@@ -188,8 +188,9 @@ function Home() {
                     <div className={classes.main_right}>
                         <Typography variant="h3" className={classes.main_title}>Indicador del Tipo de <br /> Locus de Control</Typography>
                         <Typography variant="h6" className={classes.main_description}>
-                            Este test de personalidad de 10 minutos te permitirá
-                            conocer más sobre tus fortalezas y como alcanzar el éxito en tu vida profesional y romántica.
+                            En este test se descifra el grado en el que considera la persona de tener el
+                            control de su vida en los eventos que ocurren en ella, hasta qué punto los sujetos logran controlarse
+                            ante eventos sociales o de lo contrario cómo son influenciados por estos en su actuar.
                         </Typography>
                     </div>
                 </div>
@@ -201,11 +202,11 @@ function Home() {
                 <div className={classes.main2}>
                     <div className={classes.cards}>
                         <MainCard
-                            title="¿Que función cumple este test?"
+                            title="¿Que es el locus de control?"
                             description="El locus de control es una variable de la personalidad que representa la atribución que 
                             una persona lleva a cabo sobre si el esfuerzo que realiza es o no contingente a su conducta.
-                            En este test se descifra el grado en el que considera la persona de tener tienes el control de su vida 
-                            en los eventos que ocurren en ella."
+                            Puede ser interno (cuando creemos que tenemos todo el control de lo que nos pasa) o externo 
+                            (cuando creemos que son otras personas o las circunstancias las que dominan nuestra vida)"
                             logo={InfoLogo}
                         />
                         <MainCard
