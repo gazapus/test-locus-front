@@ -33,7 +33,6 @@ function setGuestTest() {
 }
 
 function isGuestTest() {
-    console.log(sessionStorage.getItem('guest'))
     return sessionStorage.getItem('guest');
 }
 
