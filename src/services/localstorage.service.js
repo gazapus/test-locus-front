@@ -25,6 +25,19 @@ function removeUsernameTest() {
 function clearAll() {
     sessionStorage.removeItem('username_test');
     sessionStorage.removeItem('user_test');
+    sessionStorage.removeItem('guest');
+}
+
+function setGuestTest() {
+    sessionStorage.setItem('guest', true);
+}
+
+function isGuestTest() {
+    return sessionStorage.getItem('guest');
+}
+
+function removeGuest() {
+    sessionStorage.removeItem('guest');
 }
 
 let methods = {
@@ -34,7 +47,10 @@ let methods = {
     setUsernameTest,
     getUsernameTest,
     removeUsernameTest,
-    clearAll
+    clearAll,
+    setGuestTest, 
+    isGuestTest, 
+    removeGuest
 };
 
 export default methods;
