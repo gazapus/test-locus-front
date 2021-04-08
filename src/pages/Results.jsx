@@ -35,6 +35,7 @@ function Results() {
     const [testOpen, setTestOpen] = useState({});
     const history = useHistory();
     const classes = useStyles();
+    document.title = "Locus de Control | Resultados"
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
